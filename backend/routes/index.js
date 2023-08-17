@@ -6,10 +6,12 @@ const router = express.Router();
 //   .route("/")  
 //   .get(controllers.getAllTodos)
 //   .post(controllers.createTodo);
-router.route("/").get(controllers.getAllTodos).post(controllers.createTodo);
 //router.put("/:id/status", controllers.updateTodoStatus);
 
-
+router
+ .route("/")
+ .get(controllers.getAllTodos)
+ .post(controllers.createTodo);
 
 
 router

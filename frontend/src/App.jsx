@@ -36,9 +36,9 @@ export default function App() {
     }
   }
 
-  async function toggleTodo(id, completed) {
+  async function toggleTodo(id, status) {
     try {
-      const newStatus = completed ? 'completed' : 'pending';
+      const newStatus = status ? 'completed' : 'pending';
       await axios.put(`http://localhost:3000/${id}`, { status: newStatus });
       
       setTodos((currentTodos) =>
@@ -85,7 +85,7 @@ export default function App() {
               <input
                 type="checkbox"
                 checked={todo.status === 'completed'}
-                onChange={() => toggleTodo(todo.id, todo.status === 'completed' ? 'pending' : 'completed')}
+                onChange={() => toggleTodo(todo.id, todo.status === 'pending' ? 'completed' : 'pending')}
                 />
               {todo.name}
             </label>
